@@ -38,6 +38,25 @@ class GameBoard:
 
 
         return 0
+    def toString(self):
+        out = ""
+        for i in range(4):
+            out = out +  "\n"
+            for j in range(4):
+               # out = out +"-----"
+                if (self.Board[i][j].getValue() < 10):
+                    out = out + "[  " + str(self.Board[i][j].getValue()) + "  ]"
+                elif(self.Board[i][j].getValue() < 100):
+                    out = out + "[  " +  str(self.Board[i][j].getValue()) + " ]"
+                elif(self.Board[i][j].getValue() < 1000):
+                    out = out + "[ " + str(self.Board[i][j].getValue()) + " ]"
+                elif(self.Board[i][j].getValue() > 1000):
+                    out = out + "[" +  str(self.Board[i][j].getValue()) + "]"
+           # out = out + "-----"
+            out = out + "\n"
+
+        return out
+
 
     def setSpot(self, x, y, val):
         self.Board[x][y].setValue(val)
