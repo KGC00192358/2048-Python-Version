@@ -1,37 +1,37 @@
-#!/usr/bin/python
+#!/usr/bin/env python3 
 from GameBoard import GameBoard
 from Player import Player
 b = GameBoard()
 
 
-select = raw_input("Hello, press 1 to enter manual mode, 2 to enter learning mode")
+select = input("Hello, press 1 to enter manual mode, 2 to enter learning mode")
 if (select == "1"):
     b.printMe()
     #print b.checkWinLose()
     while(b.checkWinLose() == 0):
     #   print b.checkWinLose()
-        move = raw_input("make a move")
-        print move
+        move = input("make a move")
+        print(move)
         if (move == "s"):
             b.moveNumbersDown()
             b.printMe()
-            print
+            print()
         if(move == "w"):
             b.moveNumbersUp()
             b.printMe()
-            print
+            print()
         if(move == "d"):
             b.moveNumbersRight()
             b.printMe()
-            print
+            print()
         if(move == "a"):
             b.moveNumbersLeft()
             b.printMe()
-            print
+            print()
     if(b.checkWinLose() == 1):
-        print "win"
+        print("win")
     if(b.checkWinLose() == -1):
-        print "lose"
+        print("lose")
 if(select == "2"):
     p = Player(b)
     while(b.checkWinLose() == 0):

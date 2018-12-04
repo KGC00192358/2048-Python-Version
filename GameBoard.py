@@ -18,26 +18,10 @@ class GameBoard:
         self.Board = [[0 for x in range(w)] for y in range(h)]
         for i in range(16):
 
-            self.Board[i/4][i%4] = self.Cell(0, i)
+            self.Board[int(i/4)][int(i%4)] = self.Cell(0, i)
         self.addTwo()
 
 
-    def printMe(self):
-        for i in range(4):
-            print
-            for j in range(4):
-                if (self.Board[i][j].getValue() < 10):
-                    print "|  ", self.Board[i][j].getValue(), "  |",
-                elif(self.Board[i][j].getValue() < 100):
-                    print "|  ", self.Board[i][j].getValue(), " |",
-                elif(self.Board[i][j].getValue() < 1000):
-                    print "| ", self.Board[i][j].getValue(), " |",
-                elif(self.Board[i][j].getValue() > 1000):
-                    print "|", self.Board[i][j].getValue(), "|",
-            print
-
-
-        return 0
     def toString(self):
         out = ""
         for i in range(4):
@@ -52,10 +36,26 @@ class GameBoard:
                     out = out + "[ " + str(self.Board[i][j].getValue()) + " ]"
                 elif(self.Board[i][j].getValue() > 1000):
                     out = out + "[" +  str(self.Board[i][j].getValue()) + "]"
-           # out = out + "-----"
-            out = out + "\n"
+            out = out + "-----\n"
+           # out = out + "\n"
 
         return out
+
+    def printMe(self):
+        for i in range(4):
+           # print()
+           # for j in range(4):
+           #     if (self.Board[i][j].getValue() < 10):
+           #         print("|  ", self.Board[i][j].getValue(), "  |",)
+           #     elif(self.Board[i][j].getValue() < 100):
+           #         print ("|  ", self.Board[i][j].getValue(), " |",)
+           #     elif(self.Board[i][j].getValue() < 1000):
+           #         print ("| ", self.Board[i][j].getValue(), " |",)
+           #     elif(self.Board[i][j].getValue() > 1000):
+           #         print ("|", self.Board[i][j].getValue(), "|",)
+           # print()
+           print(self.toString())
+        return 0
 
 
     def setSpot(self, x, y, val):
@@ -66,13 +66,13 @@ class GameBoard:
             self.setByRowMaj(i, 0)
 
     def getVal(self, rowMajor):
-        return  self.Board[rowMajor/4][rowMajor%4].getValue()
+        return  self.Board[int(rowMajor/4)][int(rowMajor%4)].getValue()
 
     def getBoard(self):
         return self.Board
 
     def setByRowMaj(self, rowMajor, val):
-        self.Board[rowMajor/4][rowMajor%4].setValue(val)
+        self.Board[int(rowMajor/4)][int(rowMajor%4)].setValue(val)
 
         '''
         This adds a two by scanning the board for empty cells
@@ -86,7 +86,7 @@ class GameBoard:
                 randRowMaj = random.randint(0, 15)
                 while (self.getVal(randRowMaj) != 0):
                     randRowMaj = random.randint(0, 15)
-                self.setByRowMaj(randRowMaj, 2)
+                self.setByRowMaj(int(randRowMaj), 2)
                 return 1
 
     '''

@@ -17,7 +17,7 @@ class Player:
         self.log.write("starting game on board:")
         self.log.write(self.B.toString())
         self.log.write("\n")
-        print self.B.toString()
+        print(self.B.toString())
 
 
     def play(self):
@@ -28,22 +28,22 @@ class Player:
                 maxVal = self.getExpVal(i)
                 maxMove = i
         if (maxMove == self.DOWN):
-            print "DOWN"
+            print("DOWN")
             self.log.write("moving down")
             self.B.moveNumbersDown()
             self.log.write(self.B.toString())
         if (maxMove == self.RIGHT):
-            print "RIGHT"
+            print("RIGHT")
             self.log.write("moving Right")
             self.B.moveNumbersRight()
             self.log.write(self.B.toString())
         if (maxMove == self.UP):
-            print "Up"
+            print("Up")
             self.log.write("moving Up")
             self.B.moveNumbersUp()
             self.log.write(self.B.toString())
         if (maxMove == self.LEFT):
-            print "left"
+            print("left")
             self.log.write("moving Left")
             self.B.moveNumbersLeft()
             self.log.write(self.B.toString())
