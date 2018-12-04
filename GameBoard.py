@@ -36,13 +36,13 @@ class GameBoard:
                     out = out + "[ " + str(self.Board[i][j].getValue()) + " ]"
                 elif(self.Board[i][j].getValue() > 1000):
                     out = out + "[" +  str(self.Board[i][j].getValue()) + "]"
-            out = out + "-----\n"
+            #out = out + "-----\n"
            # out = out + "\n"
 
         return out
 
     def printMe(self):
-        for i in range(4):
+        #for i in range(4):
            # print()
            # for j in range(4):
            #     if (self.Board[i][j].getValue() < 10):
@@ -54,7 +54,7 @@ class GameBoard:
            #     elif(self.Board[i][j].getValue() > 1000):
            #         print ("|", self.Board[i][j].getValue(), "|",)
            # print()
-           print(self.toString())
+        print(self.toString())
         return 0
 
 
@@ -133,7 +133,7 @@ all this method does is collapse the line into adjacent numbers that touch the e
     '''
     def moveLine(self, line, dire):
         if(dire == self.RIGHT):
-            line = line*4 + 3
+            line = int(line*4 + 3)
             #print line
             for rowMaj in range(line, line - 4, -1):
               #  print "rowMaj",  rowMaj
@@ -151,8 +151,9 @@ all this method does is collapse the line into adjacent numbers that touch the e
         if (dire ==  self.LEFT):
             #print "runing move on line:", line
             if (line > 0):
-                line = line*4
+                line = int(line*4)
              #   print "line is now:", line
+            line = int(line)
             for rowMaj in range(line, line + 4, 1):
               #  print "rowMAj:", rowMaj
                 if(self.getVal(rowMaj) == 0):
@@ -175,7 +176,7 @@ all this method does is collapse the line into adjacent numbers that touch the e
 
 
         if (dire == self.DOWN):
-            line = line + 12
+            line = int(line + 12)
             for rowMaj in range(line, -1, -4):
                 if(self.getVal(rowMaj) == 0):
                     for i in range(rowMaj - 4, -1, -4):
