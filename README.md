@@ -1,3 +1,5 @@
+Kevin Conyers
+
 This is a project about machine learning. I am trying to see if I can design a program in such a way that it can determine a way to play and win a game of 2048.
 For anyone unfamiliar, 2048 is a game that is played on a 4 by 4 grid or cells, starting with a 2 or 4 in one of the cells. Then the player can select a direction(Up, Down, left, right) 
 and that two goes to farthest possible cell in a straight line from where it started along the chosen direction. Then another 2 or 4 is added somewhere in the grid.
